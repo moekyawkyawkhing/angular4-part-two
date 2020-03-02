@@ -88,7 +88,7 @@
                              <option value="japan">japan</option>
                          </select>
                      </div>
-                     <input type="submit" value="Submit" class="btn btn-md btn-warning float-right">
+                     <input [disabled]="!form.valid" type="submit" value="Submit" class="btn btn-md btn-warning float-right">
                  </form>
                 </div>
             </div>
