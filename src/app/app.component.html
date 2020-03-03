@@ -1,97 +1,109 @@
 <div class="container">
-    <div class="col-md-6 offset-md-3 my-5">
-        <div class="border text-center bg-primary p-0">
-            <h2 class="text-white">
-                ANGULAR4
-            </h2>
-           <div class="input-group">
-               <input type="text" [(ngModel)]="new_item" class="form-control rounded-0">
-               <span class="input-group-addon p-2 bg-secondary text-white" (click)="addNewItem()">ADD</span>
-           </div>
-           <ul class="list-group">
-            <li class="list-group-item rounded-0" *ngFor="let item of items; let i = index">
-                <span class="float-left">{{ item }}</span> <span class="badge badge-secondary float-right" (click)="removeItem(i)">x</span>
-            </li>
-          </ul>
-        </div>
-        <div class="text-center my-3">
-           <div class="card">
-               <div class="card-body">
-                    <h2>Piping</h2><hr/>
-                    {{ name }} <br/>
-                    {{ name | uppercase }} <br/>
-                    {{ day }} <br/>
-                    {{ day | date }} <br/>
-                    {{ day | date : 'shortDate' }} <br/>
-                    {{ day | date : 'fullDate' }}
+    <div class="row">
+        <div class="col-md-6 my-5">
+            <div class="border text-center bg-primary p-0">
+                <h2 class="text-white">
+                    ANGULAR4
+                </h2>
+               <div class="input-group">
+                   <input type="text" [(ngModel)]="new_item" class="form-control rounded-0">
+                   <span class="input-group-addon p-2 bg-secondary text-white" (click)="addNewItem()">ADD</span>
                </div>
-           </div>
-        </div>
-        <div class="text-center my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h2>Custom (Piping)</h2><hr/>
-                    {{ nums }} <br/>
-                    {{ nums | addpipe }} <br/>
-                    {{ fruit }} <br/>
-                    {{ fruit | sortpipe : 'asc' }} <br>
-                    {{ fruit | sortpipe : 'desc' }}
+               <ul class="list-group">
+                <li class="list-group-item rounded-0" *ngFor="let item of items; let i = index">
+                    <span class="float-left">{{ item }}</span> <span class="badge badge-secondary float-right" (click)="removeItem(i)">x</span>
+                </li>
+              </ul>
+            </div>
+            <div class="text-center my-3">
+               <div class="card">
+                   <div class="card-body">
+                        <h2>Piping</h2><hr/>
+                        {{ name }} <br/>
+                        {{ name | uppercase }} <br/>
+                        {{ day }} <br/>
+                        {{ day | date }} <br/>
+                        {{ day | date : 'shortDate' }} <br/>
+                        {{ day | date : 'fullDate' }}
+                   </div>
+               </div>
+            </div>
+            <div class="text-center my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Custom (Piping)</h2><hr/>
+                        {{ nums }} <br/>
+                        {{ nums | addpipe }} <br/>
+                        {{ fruit }} <br/>
+                        {{ fruit | sortpipe : 'asc' }} <br>
+                        {{ fruit | sortpipe : 'desc' }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center my-3">
-           <div class="card">
-               <div class="card-body">
-                <h2>Template Driven Form</h2><hr/>
-                <form class="form-group" #userform="ngForm"
-                    (ngSubmit) = "saveUserData(userform.value)"
-                >
-                    <div class="input-group">
-                        <label for="username" class="input-group-addon p-2 bg-primary text-white">UserName</label>
-                        <input type="text" name="username" class="form-control" ngModel>
-                    </div>
-                    <div class="input-group">
-                        <label for="password" class="input-group-addon p-2 bg-primary text-white">Password</label>
-                        <input type="password" name="password" class="form-control" ngModel>
-                    </div>
-                    <div class="input-group">
-                        <label for="country" class="input-group-addon p-2 bg-primary text-white">Country</label>
-                        <select name="country" class="form-control" ngModel>
-                            <option value="myanmar" selected>myanmar</option>
-                            <option value="china">china</option>
-                            <option value="japan">japan</option>
-                        </select>
-                    </div>
-                    <input type="submit" value="Submit" class="btn btn-md btn-warning float-right">
-                </form>
+            <div class="text-center my-3">
+               <div class="card">
+                   <div class="card-body">
+                    <h2>Template Driven Form</h2><hr/>
+                    <form class="form-group" #userform="ngForm"
+                        (ngSubmit) = "saveUserData(userform.value)"
+                    >
+                        <div class="input-group">
+                            <label for="username" class="input-group-addon p-2 bg-primary text-white">UserName</label>
+                            <input type="text" name="username" class="form-control" ngModel>
+                        </div>
+                        <div class="input-group">
+                            <label for="password" class="input-group-addon p-2 bg-primary text-white">Password</label>
+                            <input type="password" name="password" class="form-control" ngModel>
+                        </div>
+                        <div class="input-group">
+                            <label for="country" class="input-group-addon p-2 bg-primary text-white">Country</label>
+                            <select name="country" class="form-control" ngModel>
+                                <option value="myanmar" selected>myanmar</option>
+                                <option value="china">china</option>
+                                <option value="japan">japan</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Submit" class="btn btn-md btn-warning float-right">
+                    </form>
+                   </div>
                </div>
-           </div>
-        </div>
-        <div class="text-center my-3">
-            <div class="card">
-                <div class="card-body">
-                 <h2>Modal Driven Form</h2><hr/>
-                 <form class="form-group" [formGroup]="form" (ngSubmit)="saveUserData(form.value)">
-                     <div class="input-group">
-                         <label for="username" class="input-group-addon p-2 bg-primary text-white">UserName</label>
-                         <input type="text" name="username" class="form-control" formControlName="uname">
-                     </div>
-                     <div class="input-group">
-                         <label for="password" class="input-group-addon p-2 bg-primary text-white">Password</label>
-                         <input type="password" name="password" class="form-control" formControlName="upass">
-                     </div>
-                     <div class="input-group">
-                         <label for="country" class="input-group-addon p-2 bg-primary text-white">Country</label>
-                         <select name="country" class="form-control" formControlName="ucountry">
-                             <option value="myanmar" selected>myanmar</option>
-                             <option value="china">china</option>
-                             <option value="japan">japan</option>
-                         </select>
-                     </div>
-                     <input [disabled]="!form.valid" type="submit" value="Submit" class="btn btn-md btn-warning float-right">
-                 </form>
-                </div>
             </div>
-         </div>
+            <div class="text-center my-3">
+                <div class="card">
+                    <div class="card-body">
+                     <h2>Modal Driven Form</h2><hr/>
+                     <form class="form-group" [formGroup]="form" (ngSubmit)="saveUserData(form.value)">
+                         <div class="input-group">
+                             <label for="username" class="input-group-addon p-2 bg-primary text-white">UserName</label>
+                             <input type="text" name="username" class="form-control" formControlName="uname">
+                         </div>
+                         <div class="input-group">
+                             <label for="password" class="input-group-addon p-2 bg-primary text-white">Password</label>
+                             <input type="password" name="password" class="form-control" formControlName="upass">
+                         </div>
+                         <div class="input-group">
+                             <label for="country" class="input-group-addon p-2 bg-primary text-white">Country</label>
+                             <select name="country" class="form-control" formControlName="ucountry">
+                                 <option value="myanmar" selected>myanmar</option>
+                                 <option value="china">china</option>
+                                 <option value="japan">japan</option>
+                             </select>
+                         </div>
+                         <input [disabled]="!form.valid" type="submit" value="Submit" class="btn btn-md btn-warning float-right">
+                     </form>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-6 my-5">
+            <div class="text-center my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>EventBus</h2><hr/>
+                        <app-event-test (myclick)="sendData($event)" [event_bus_test]="event_bus_test"></app-event-test>
+                    </div>
+                </div>
+             </div>
+        </div>
     </div>
 </div>

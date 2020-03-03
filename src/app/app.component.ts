@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   public nums : number [] = [1 , 2, 4 ,5 , 6];
   public fruit : any [] = ['apple', 'orange', 'banana', 'mango'];
   public form;
+  public event_bus_test : string = 'event bus test - ( output binding ) ( parent to child - data binding )';
 
   ngOnInit(){
     this.form= new FormGroup({
@@ -37,5 +38,9 @@ export class AppComponent implements OnInit{
 
   saveUserData(data){
     console.log(data);
+  }
+
+  sendData(data){
+    alert(data);
   }
 }
